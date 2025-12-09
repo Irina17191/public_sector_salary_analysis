@@ -6,7 +6,7 @@ This repository contains a project analyzing **average salaries** of public sect
 Dashboards and visualizations were created using **Apache Superset**, while data extraction, cleaning, and aggregation were performed with **SQL**.
 Superset dashboards include **interactive filters** for deeper data exploration.  
 
----
+
 
 ## 📊 Dashboard Visualizations
 
@@ -19,20 +19,20 @@ The following charts are included. Click each to view the screenshot:
 ---
 
 ### 2. Average Salary Analysis Central Executive Bodies
-![Average Salary Analysis Central Executive Bodies](charts/ceb_avg_salary.pjpg)
+![Average Salary Analysis Central Executive Bodies](charts/2%20Average%20Salary%20Analysis%20Central%20Executive%20Bodies.jpg)
 *Distribution of average monthly salaries by central executive body.*
 
 ---
 
 ### 3. Ministries Dynamics of Average Salary by Year
-![Ministries Dynamics of Average Salary by Year](charts/ministries_salary_trend.jpg)
+![Ministries Dynamics of Average Salary by Year](charts/3%20Ministries%20Dynamics%20of%20Average%20Salary%20by%20Year.jpg)
 *Trends of average salaries in ministries over the years.*
 
 ---
 
 ### 4. Central Executive Bodies Salary Dynamics by Year
-![Central Executive Bodies Salary Dynamics by Year](charts/ceb_salary_trend.jpg)
-*Trends of average salaries in CEBs over the years.*
+![Central Executive Bodies Salary Dynamics by Year](charts/4%20Central%20Executive%20Bodies%20Salary%20Dynamics%20by%20Year.jpg)
+*Trends of average salaries in central executive bodies over the years.*
 
 > **Note:** The Superset dashboard includes **interactive filters** for **year** and **employee post category**, which are not visible in these static screenshots.
 
