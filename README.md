@@ -13,7 +13,7 @@ Superset dashboards include **interactive filters** for deeper data exploration.
 The following charts are included. Click each to view the screenshot:
 
 ### 1. Average Salary Analysis Across Ministries
-![Average Salary Analysis Across Ministries](charts/ministries_avg_salary.jpg)
+![Average Salary Analysis Across Ministries](charts/1%20Average%20Salary%20Analysis%20Across%20Ministries.jpg)
 *Distribution of average monthly salaries by ministry.*
 
 ---
