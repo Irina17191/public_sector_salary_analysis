@@ -19,8 +19,8 @@ Superset dashboards include **interactive filters** for deeper data exploration.
 - JOINs across multiple declaration-related tables  
 - Data quality checks (year completeness, duplicate main salaries, invalid income values)
 
-**Apache Superset** — interactive dashboards and visualizations, multi-level filters    
-**GitHub** — version control and project sharing
+**Apache Superset** - interactive dashboards and visualizations, multi-level filters    
+**GitHub** - version control and project sharing
 
 ---
 
@@ -96,7 +96,7 @@ public_sector_salary_analysis/
 
 ### 2. Base Extraction
 - Selected key fields from declarations and revenue tables  
-- Filtered only annual declarations (2022–2024)  
+- Filtered only annual declarations (2022 - 2024)  
 - Converted annual salary values into monthly equivalents
 
 ### 3. Duplicate Salary Removal
@@ -105,7 +105,7 @@ public_sector_salary_analysis/
 
 ### 4. Quartile Segmentation
 - Applied NTILE(5) over monthly income  
-- Focused on 2nd–4th quintiles (avoid extreme outliers)
+- Focused on 2nd - 4th quintiles (avoid extreme outliers)
 
 ### 5. Final Aggregation
 - Grouped by ministry/CEB and post category  
