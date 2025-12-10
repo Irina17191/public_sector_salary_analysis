@@ -19,7 +19,7 @@ Superset dashboards include **interactive filters** for deeper data exploration.
 - JOINs across multiple declaration-related tables  
 - Data quality checks (year completeness, duplicate main salaries, invalid income values)
 
-**Apache Superset** — interactive dashboards and visualizations, multi-level filters
+**Apache Superset** — interactive dashboards and visualizations, multi-level filters    
 **GitHub** — version control and project sharing
 
 ---
