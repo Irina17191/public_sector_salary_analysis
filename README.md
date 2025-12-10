@@ -6,11 +6,31 @@ This repository contains a project analyzing **average salaries** of public sect
 Dashboards and visualizations were created using **Apache Superset**, while data extraction, cleaning, and aggregation were performed with **SQL**.
 Superset dashboards include **interactive filters** for deeper data exploration.  
 
+---
+
+## 🛠 Technologies
+
+**SQL (PostgreSQL):**  
+- CTEs for structured pipeline stages  
+- Window functions (NTILE, ROW_NUMBER)  
+- Subqueries for filtering and validation  
+- Regex-based text cleaning  
+- Conditional aggregation  
+- JOINs across multiple declaration-related tables  
+- Data quality checks (year completeness, duplicate main salaries, invalid income values)
+
+**Apache Superset** — interactive dashboards and visualizations, multi-level filters
+**GitHub** — version control and project sharing
+
+---
 
 
 ## 📊 Dashboard Visualizations
 
-The following charts are included. Click each to view the screenshot:
+The following charts are included. Click each to view the screenshot (filters can be applied to each chart separately or to the whole dashboard): 
+**Note:** The Superset dashboard includes **interactive filters** for **year** and **employee post category**, which are not visible in these static screenshots.
+Screenshots provide a preview but interactivity is available in Superset.
+
 
 ### 1. Average Salary Analysis Across Ministries
 ![Average Salary Analysis Across Ministries](charts/1%20Average%20Salary%20Analysis%20Across%20Ministries.jpg)
@@ -38,69 +58,60 @@ The following charts are included. Click each to view the screenshot:
 
 ---
 
-## 🛠 Technologies
-
-- **SQL** — for data extraction, cleaning, aggregation, and analysis  
-- **Apache Superset** — for interactive dashboards and visualizations  
-- **GitHub** — for version control and project sharing  
-
----
-
 ## 📝 Data Source & Description
 
 - **Data Source:** [Unified State Register of Declarations](https://public.nazk.gov.ua/)  
 - **Scope:** Ministries and Central Executive Bodies in Ukraine  
 - **Data Features:** Employee monthly income (converted from annual), post categories, organization identifiers (EDRPOU codes)  
-- **Filtering:** Only relevant income types included; duplicate salaries removed  
-- **Segmentation:** Income quintiles used to focus on 2nd, 3rd, and 4th quintiles  
+- **Filtering:** Only relevant income types included; duplicate salaries removed, verified that each employee worked the *entire calendar year*, ensuring that only complete-year salary data was analyzed
+- **Segmentation:** Income quintiles (NTILE(5)), focused on the 2nd, 3rd, and 4th quintiles
 
 ---
 
 ## 📁 Repository Structure
 
+```
 public_sector_salary_analysis/
-├─ charts/                      # Dashboard screenshots
-│ ├─ ministries_avg_salary.jpg
-│ ├─ ministries_salary_trend.jpg
-│ ├─ ceb_avg_salary.jpg
-│ └─ ceb_salary_trend.jpg
-├─ sql/                         # SQL scripts for data preparation
-│ ├─ ministries_salary.sql
-│ └─ central_executive_bodies_salary.sql
-└─ README.md                    # Project description and visualizations
-
-
-
-
----
-
-## 🧩 SQL Pipeline Overview
-
-1. **Base Extraction:**  
-   - Select relevant fields from general and revenue tables  
-   - Filter annual declarations (2022–2024)  
-   - Convert annual salaries to monthly  
-
-2. **Duplicate Salary Removal:**  
-   - Identify employees with multiple main salaries  
-   - Remove duplicates to avoid bias  
-
-3. **Quartile Segmentation:**  
-   - Assign employees to income quintiles (NTILE(5))  
-   - Focus analysis on 2nd, 3rd, and 4th quintiles  
-
-4. **Final Aggregation:**  
-   - Group by ministry/CEB and post category  
-   - Compute **count**, **average**, and **median salaries**  
-   - Exclude irrelevant or outlier organizations  
+├─ charts/                     # Dashboard screenshots
+│  ├─ 1 Average Salary Analysis Across Ministries.jpg
+│  ├─ 2 Average Salary Analysis Central Executive Bodies.jpg
+│  ├─ 3 Ministries Dynamics of Average Salary by Year.jpg
+│  └─ 4 Central Executive Bodies Salary Dynamics by Year.jpg
+│
+├─ sql/                        # SQL scripts for data preparation
+│  ├─ ministries_salary.sql
+│  └─ central_executive_bodies_salary.sql
+│
+└─ README.md                   # Project description and visualizations
+```
 
 ---
 
-## 📌 Notes
+## 🔄 SQL Pipeline
 
-- Project is **fully reproducible** using the provided SQL scripts.  
-- Superset dashboards include **interactive filters** for deeper data exploration.  
-- Screenshots provide a preview but interactivity is available in Superset.
+### 1. Preparation of Organization Reference Tables
+- Compiled EDRPOU lists for ministries and central executive bodies  
+- Verified correctness of every organization  
+- Joined these reference tables with the main declaration dataset
+
+### 2. Base Extraction
+- Selected key fields from declarations and revenue tables  
+- Filtered only annual declarations (2022–2024)  
+- Converted annual salary values into monthly equivalents
+
+### 3. Duplicate Salary Removal
+- Identify employees with multiple main salaries  
+- Removed duplicates to avoid inflated income statistics
+
+### 4. Quartile Segmentation
+- Applied NTILE(5) over monthly income  
+- Focused on 2nd–4th quintiles (avoid extreme outliers)
+
+### 5. Final Aggregation
+- Grouped by ministry/CEB and post category  
+- Calculated counts, means, and medians  
+- Excluded irrelevant / misclassified organizations
+
 
 ---
 
